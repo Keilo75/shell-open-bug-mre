@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shell Open Bug MRE</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+
+  <body>
+    <h4>1. Without spcaes</h4>
+    <div class="example">
+      <pre>shell.open("C:\\");</pre>
+      <button>Works as expected</button>
+    </div>
+
+    <h4>2. With spaces</h4>
+    <div class="example">
+      <pre>shell.open("C:\\Program Files (x86)");</pre>
+      <button>Doesn't work, opens command line</button>
+    </div>
+
+    <h4>3. Double quotes inside single quotes</h4>
+    <div class="example">
+      <pre>shell.open('"C:\\Program Files (x86)"');</pre>
+      <button>
+        Doesn't work, shows error that "Files" cannot be found + err in console
+      </button>
+    </div>
+
+    <h4>4. Single quotes inside double quotes</h4>
+    <div class="example">
+      <pre>shell.open("'C:\\Program Files (x86)'");</pre>
+      <button>Same behaviour as (2)</button>
+    </div>
+
+    <h4>5. Escaping spaces</h4>
+    <div class="example">
+      <pre>shell.open("C:\\Program\ Files\ (x86)");</pre>
+      <button>Same behaviour as (2)</button>
+    </div>
+
+    <h4>6. Escaping spaces + double quotes inside single quotes</h4>
+    <div class="example">
+      <pre>shell.open('"C:\\Program\ Files\ (x86)"');</pre>
+      <button>Same behaviour as (3)</button>
+    </div>
+
+    <h4>6. Escaping spaces + single quotes inside double quotes</h4>
+    <div class="example">
+      <pre>shell.open("'C:\\Program\ Files\ (x86)'");</pre>
+      <button>Same behaviour as (2)</button>
+    </div>
+  </body>
+</html>
