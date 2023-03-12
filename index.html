@@ -47,9 +47,33 @@
       <button>Same behaviour as (3)</button>
     </div>
 
-    <h4>6. Escaping spaces + single quotes inside double quotes</h4>
+    <h4>7. Escaping spaces + single quotes inside double quotes</h4>
     <div class="example">
       <pre>shell.open("'C:\\Program\ Files\ (x86)'");</pre>
+      <button>Same behaviour as (2)</button>
+    </div>
+
+    <h4>8. Slashes</h4>
+    <div class="example">
+      <pre>shell.open("C:/Program Files (x86)");</pre>
+      <button>Same behaviour as (2)</button>
+    </div>
+
+    <h4>9. Slashes + Escaping spaces</h4>
+    <div class="example">
+      <pre>shell.open("C:/Program\ Files\ (x86)");</pre>
+      <button>Same behaviour as (2)</button>
+    </div>
+
+    <h4>10. Slashes + Escaping spaces + double quotes inside single quotes</h4>
+    <div class="example">
+      <pre>shell.open('"C:/Program\ Files\ (x86)"');</pre>
+      <button>Shows error in console, but no dialog</button>
+    </div>
+
+    <h4>11. Slashes + Escaping spaces + single quotes inside double quotes</h4>
+    <div class="example">
+      <pre>shell.open("'C:/Program\ Files\ (x86)'");</pre>
       <button>Same behaviour as (2)</button>
     </div>
   </body>
